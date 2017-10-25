@@ -37,6 +37,8 @@ public class Login extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,11 +53,18 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Password");
 
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Desktop\\Nova pasta\\Icons\\Icons\\inside-logout-icon.png")); // NOI18N
         jButton1.setText("Login");
 
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Desktop\\Nova pasta\\Icons\\Icons\\mini_Icon_ForgotPassw.png")); // NOI18N
         jButton3.setText("Forgot Password");
 
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Desktop\\Nova pasta\\Icons\\Icons\\new-file-icon.png")); // NOI18N
         jButton2.setText("SignUp");
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Desktop\\Nova pasta\\Icons\\Icons\\Security-Password-2-icon.png")); // NOI18N
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Desktop\\Nova pasta\\Icons\\Icons\\Password-shopping-icon.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -83,10 +92,12 @@ public class Login extends javax.swing.JFrame {
                                         .addComponent(jButton2))
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -96,13 +107,15 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -178,6 +191,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;

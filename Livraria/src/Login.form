@@ -166,7 +166,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Administrador\Desktop\Nova pasta\Icons\Icons\inside-logout-icon.png"/>
+              <Image iconType="3" name="/IconeS/inside-logout-icon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
@@ -178,7 +178,7 @@
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Administrador\Desktop\Nova pasta\Icons\Icons\mini_Icon_ForgotPassw.png"/>
+              <Image iconType="3" name="/IconeS/mini_Icon_ForgotPassw.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Forgot Password"/>
           </Properties>
@@ -188,7 +188,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Administrador\Desktop\Nova pasta\Icons\Icons\new-file-icon.png"/>
+              <Image iconType="3" name="/IconeS/new-file-icon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="SignUp"/>
           </Properties>
@@ -196,14 +196,14 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Administrador\Desktop\Nova pasta\Icons\Icons\Security-Password-2-icon.png"/>
+              <Image iconType="3" name="/IconeS/Security-Password-2-icon.png"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Administrador\Desktop\Nova pasta\Icons\Icons\Password-shopping-icon.png"/>
+              <Image iconType="3" name="/IconeS/Password-shopping-icon.png"/>
             </Property>
           </Properties>
         </Component>

@@ -53,18 +53,18 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Password");
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Desktop\\Nova pasta\\Icons\\Icons\\inside-logout-icon.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/inside-logout-icon.png"))); // NOI18N
         jButton1.setText("Login");
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Desktop\\Nova pasta\\Icons\\Icons\\mini_Icon_ForgotPassw.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/mini_Icon_ForgotPassw.png"))); // NOI18N
         jButton3.setText("Forgot Password");
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Desktop\\Nova pasta\\Icons\\Icons\\new-file-icon.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/new-file-icon.png"))); // NOI18N
         jButton2.setText("SignUp");
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Desktop\\Nova pasta\\Icons\\Icons\\Security-Password-2-icon.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/Security-Password-2-icon.png"))); // NOI18N
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrador\\Desktop\\Nova pasta\\Icons\\Icons\\Password-shopping-icon.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/Password-shopping-icon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

@@ -10,9 +10,7 @@
  */
 public class Forgot extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Forgot
-     */
+
     public Forgot() {
         initComponents();
     }

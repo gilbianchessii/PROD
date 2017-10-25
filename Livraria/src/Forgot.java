@@ -43,16 +43,19 @@ public class Forgot extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Forgot Password", 0, 0, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(255, 0, 0))); // NOI18N
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/inside-logout-icon.png"))); // NOI18N
         jButton3.setText("Back");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Your Password");
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/search.gif"))); // NOI18N
         jButton1.setText("Search");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Username");
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/Person-Male-Light-icon.png"))); // NOI18N
         jButton2.setText("Retrive");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N

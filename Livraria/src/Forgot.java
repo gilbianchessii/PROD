@@ -11,10 +11,54 @@
 public class Forgot extends javax.swing.JFrame {
 
 
-    public Forgot() {
+    public Esqueceu() {
+        super('Esqueceu a senha');
         initComponents();
+        conn = javaconnect.ConnerDb();
+        
+    }
+    
+    public void Pesquisar(){
+        a1 = jTextFieldNome.getText();
+        String sql = "select * from conta where usuario = '"+a1+"'";
+        if(rs.next()){
+            jTextFieldUsuario.setText(rs.getString(1));
+            jTextFieldUsuario.setText(rs.getString(4));
+            rs.close();
+            pst.close();
+        }
+       
+        else{
+            JOptionPane.showMessageDialog(null), 'Nome de Usuário Incorreto');
+        }
+        
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e)
+                            }
+        
     }
 
+    public void Recuperar(){
+
+   String a1 = jTextFieldNome;
+   String a2 = jTextFieldUsuario;
+   String sql = "select * from conta where resposta = '"+a2+"'";
+
+    
+    try{
+	pst = conn.preparedStatement(sql);
+	rs = pst.executeQuery();
+		if(rs.next()){
+		jTextFieldResposta.setText(rs.getString(5));			      }
+
+	}catch(Exception e) {
+		JOptionPane.showMessageDialog(null, e)
+	}
+			
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,22 +85,37 @@ public class Forgot extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Esqueceu a Senha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(255, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Esqueceu a Senha", 0, 0, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(255, 0, 0))); // NOI18N
 
         jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/inside-logout-icon.png"))); // NOI18N
         jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
 
         jLabelSSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelSSenha.setText("Sua Senha");
 
         jButtonPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/search.gif"))); // NOI18N
         jButtonPesquisar.setText("Pesquisar");
+        jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisarActionPerformed(evt);
+            }
+        });
 
         jLabelUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelUsuario.setText("Usuario");
 
         jButtonRecuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/Person-Male-Light-icon.png"))); // NOI18N
         jButtonRecuperar.setText("Recuperar");
+        jButtonRecuperar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRecuperarActionPerformed(evt);
+            }
+        });
 
         jLabelNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelNome.setText("Nome");
@@ -155,6 +214,23 @@ public class Forgot extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
+        // TODO add your handling code here:
+        Pesquisar();
+    }//GEN-LAST:event_jButtonPesquisarActionPerformed
+
+    private void jButtonRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRecuperarActionPerformed
+        // TODO add your handling code here:
+        Recuperar();
+    }//GEN-LAST:event_jButtonRecuperarActionPerformed
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        Login ob = new Login();
+        ob.setVisible(true);
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**
      * @param args the command line arguments

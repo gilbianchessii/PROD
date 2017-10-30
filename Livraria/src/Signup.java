@@ -54,7 +54,7 @@ PreparedStatement stmt;
 
         jLabel5.setText("Resposta");
 
-        jComboBoxPSegurança.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxPSegurança.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "qual nome da sua mae?", "nome da primeira professora", "qual time teu pai torce?", "qual nome do seu avô paterno?" }));
 
         jLabel1.setText("Nome");
 

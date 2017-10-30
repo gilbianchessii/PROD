@@ -42,7 +42,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(0, 153, 204))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Login", 0, 0, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(0, 153, 204))); // NOI18N
 
         jLabelPLogin.setForeground(new java.awt.Color(255, 0, 0));
         jLabelPLogin.setText("Problema ao efetuar Login...");
@@ -58,6 +58,11 @@ public class Login extends javax.swing.JFrame {
 
         jButtonESenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/mini_Icon_ForgotPassw.png"))); // NOI18N
         jButtonESenha.setText("Esqueci a Senha");
+        jButtonESenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonESenhaActionPerformed(evt);
+            }
+        });
 
         jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/new-file-icon.png"))); // NOI18N
         jButtonRegistrar.setText("Registrar");
@@ -144,6 +149,11 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonESenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonESenhaActionPerformed
+        Forgot eSenha = new Forgot();
+        eSenha.setVisible(true);
+    }//GEN-LAST:event_jButtonESenhaActionPerformed
 
     /**
      * @param args the command line arguments

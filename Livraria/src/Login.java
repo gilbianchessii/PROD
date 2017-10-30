@@ -1,5 +1,10 @@
 
+import Connection.JavaConnect;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,12 +17,14 @@ import javax.swing.JOptionPane;
  * @author Rodrigo
  */
 public class Login extends javax.swing.JFrame {
+Connection con;
+ResultSet rs;
+PreparedStatement stmt;
 
-    /**
-     * Creates new form Login
-     */
     public Login() {
+        super("Login");
         initComponents();
+        con = JavaConnect.ConnectDb();
     }
 
     /**
@@ -164,58 +171,48 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonESenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonESenhaActionPerformed
-        setVisible(false);
-        Forgot eSenha = new Forgot();
-        eSenha.setVisible(true);
-    }//GEN-LAST:event_jButtonESenhaActionPerformed
-
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        // TODO add your handling code here:
         setVisible(false);
-        Signup cadastrar = new Signup();
-        cadastrar.setVisible(true);
+        Signup ob=new Signup();
+        ob.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
+
+    private void jButtonESenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonESenhaActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        Forgot ob=new Forgot();
+        ob.setVisible(true);
+    }//GEN-LAST:event_jButtonESenhaActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
-        String sql = "select * from conta where usuario=? and senha=?"
-
-	try{
-	pst = conn.prepareStatement(sql);
-	pst.setString(1,JTextFieldNome.getText());				
-	pst.setString(3,JTextFieldSenha.getText());
-	rs = pst.executeQuery();
-	
-	if(rs.next)	{
-		rs.close();
-		pst.close();	
-		setVisible(false);
-		Loading ob = new Loading();
-		ob.setVisible(true)
-			}
-
-			
-        }else{
-	JOptionPane.showMessageDialog(null, "Nome de usuário ou senha incorretos");
-	    
-        }catch(Exception e){
-	JOptionPane.showMessageDialog(null, e)
-                          
-
+        String sql="SELECT * FROM Conta WHERE Username=? and Password=?";
+        try {
+            stmt=con.prepareStatement(sql);
+            stmt.setString(1,jTextFieldUsuario.getText());
+            stmt.setString(2,jPasswordFieldSenha.getText());
+            rs=stmt.executeQuery();
+            if(rs.next()){
+                rs.close();
+                stmt.close();
+        setVisible(false);
+        Loading ob=new Loading();
+        ob.setUpLoading();
+        ob.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuário ou Senha Incorretos");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }finally{
-	rs.close();
-	pst.close();	
-               }
-
-        try{
+            try {
             rs.close();
-            pst.close();
-        
-
-        }catch(Exception e){
-                          }
-        
-	
+            stmt.close();
+            } catch (Exception e) {
+            }
+            
+        }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**
@@ -229,11 +226,12 @@ public class Login extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+               /* if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+                    break;*/
+                UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
                 }
-            }
+            
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {

@@ -1,3 +1,8 @@
+
+import Connection.JavaConnect;
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,12 +14,14 @@
  * @author Administrador
  */
 public class Signup extends javax.swing.JFrame {
+Connection con;
+ResultSet rs;
+PreparedStatement stmt;
 
-    /**
-     * Creates new form Signup
-     */
     public Signup() {
+        super("Signup");
         initComponents();
+        con = JavaConnect.ConnectDb();
     }
 
     /**
@@ -42,7 +49,7 @@ public class Signup extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)), "Nova Conta", 0, 0, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(0, 153, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)), "Nova Conta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(0, 153, 51))); // NOI18N
         jPanel1.setToolTipText("");
 
         jLabel5.setText("Resposta");
@@ -59,6 +66,11 @@ public class Signup extends javax.swing.JFrame {
 
         jButtonCriar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/Save-icon.png"))); // NOI18N
         jButtonCriar.setText("Criar");
+        jButtonCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCriarActionPerformed(evt);
+            }
+        });
 
         jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/inside-logout-icon.png"))); // NOI18N
         jButtonVoltar.setText("Voltar");
@@ -147,12 +159,34 @@ public class Signup extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCriarActionPerformed
+        // TODO add your handling code here:
+        try {
+            String sql = "INSERT INTO Conta (Name, Username, Password, Sec_Q, Answer) VALUES (?,?,?,?,?)";
+            stmt=con.prepareStatement(sql);
+            stmt.setString(1, jTextFieldNome.getText());
+            stmt.setString(2, jTextFieldUsuario.getText());
+            stmt.setString(3, jTextFieldSenha.getText());
+            stmt.setString(4, (String) jComboBoxPSegurança.getSelectedItem());
+            stmt.setString(5, jTextFieldResposta.getText());
+            stmt.execute();
+            JOptionPane.showMessageDialog(null, "Nova Conta Criada!");
+            //rs.close();
+            //stmt.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            
+        }
+    }//GEN-LAST:event_jButtonCriarActionPerformed
+
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        // TODO add your handling code here:
         setVisible(false);
-        Login lgn = new Login();
-        lgn.setVisible(true);
+        Login ob = new Login();
+        ob.setVisible(true);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**

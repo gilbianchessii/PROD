@@ -1,5 +1,5 @@
 
-import Connection.ConnectionFactory;
+import Connection.JavaConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,9 +21,9 @@ ResultSet rs;
 PreparedStatement stmt;
 
     public Forgot() {
-        super("Esqueceu a Senha");
+        super("Forgot Password");
         initComponents();
-        con = ConnectionFactory.ConnectDb();
+        con = JavaConnect.ConnectDb();
     }
 
     public void Search(){
@@ -90,7 +90,7 @@ PreparedStatement stmt;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Esqueceu a Senha", 0, 0, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(255, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Esqueceu a Senha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(255, 0, 0))); // NOI18N
 
         jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/inside-logout-icon.png"))); // NOI18N
         jButtonVoltar.setText("Voltar");

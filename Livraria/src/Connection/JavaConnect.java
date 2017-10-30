@@ -1,9 +1,11 @@
+package Connection;
+
 
 /**
  *
  * @author Rodrigo
  */
-/*
+// ConnectionFactory
 import java.sql.*;
 import javax.swing.JOptionPane;
 public class JavaConnect {
@@ -21,17 +23,16 @@ public class JavaConnect {
             throw new RuntimeException("Erro na conexão", ex);
         }
     }
-    // Conexão SQLite
-    /*public static Connection ConnectDb(){
-        try {
-            Class.forName("org.sqlite.JDBC");
-            Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Administrador\\Desktop\\LIV\\Livraria.sqlite");
+}
+        
+        /*       try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/livraria");
 
             return con;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             return null;
         }
-    }*/
-   
-//}
+    }
+}*/

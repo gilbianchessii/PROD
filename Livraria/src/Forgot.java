@@ -1,3 +1,10 @@
+
+import Connection.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,56 +16,54 @@
  * @author Rodrigo
  */
 public class Forgot extends javax.swing.JFrame {
+Connection con;
+ResultSet rs;
+PreparedStatement stmt;
 
-    public Esqueceu() {
-        super(
-         'Esqueceu a senha'
-        );
+    public Forgot() {
+        super("Esqueceu a Senha");
         initComponents();
-        conn = javaconnect.ConnerDb();
-
+        con = ConnectionFactory.ConnectDb();
     }
 
-    public void Pesquisar() {
-        a1 = jTextFieldNome.getText();
-        String sql = "select * from conta where usuario = '" + a1 + "'";
-        if (rs.next()) {
-            jTextFieldUsuario.setText(rs.getString(1));
-            jTextFieldUsuario.setText(rs.getString(4));
+    public void Search(){
+        String a1 = jTextFieldUsuario.getText();
+        String sql="SELECT * FROM Conta WHERE Username='"+a1+"'";
+        try{
+            stmt=con.prepareStatement(sql);
+            rs=stmt.executeQuery();
+            if(rs.next()){
+            jTextFieldNome.setText(rs.getString(2));
+            jTextFieldPSeguranca.setText(rs.getString(4));
             rs.close();
-            pst.close();
-        } else {
-            JOptionPane.showMessageDialog(null)
-            ,  
-             
-        'Nome de Usuário Incorreto');
+            stmt.close();
         }
+        else{
+            JOptionPane.showMessageDialog(null, "Usuário Incorreto");
+        } 
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+       
         
-        catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e)
-                }
-
     }
-
-    public void Recuperar() {
-
-        String a1 = jTextFieldNome;
-        String a2 = jTextFieldUsuario;
-        String sql = "select * from conta where resposta = '" + a2 + "'";
-
+    
+    public void Retrive(){
+        String a1 = jTextFieldUsuario.getText();
+        String a2 = jTextFieldResposta.getText();
+        String sql="SELECT * FROM Conta WHERE Answer='"+a2+"'";
         try {
-            pst = conn.preparedStatement(sql);
-            rs = pst.executeQuery();
-            if (rs.next()) {
-                jTextFieldResposta.setText(rs.getString(5));
-            }
-
+               stmt=con.prepareStatement(sql);
+               rs=stmt.executeQuery();
+               if(rs.next()){
+                   jTextFieldSSenha.setText(rs.getString(3));
+                   
+               }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e)
+            JOptionPane.showMessageDialog(null, e);
         }
-
     }
-
+            
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,6 +114,8 @@ public class Forgot extends javax.swing.JFrame {
         jLabelUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelUsuario.setText("Usuario");
 
+        jTextFieldPSeguranca.setEditable(false);
+
         jButtonRecuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/Person-Male-Light-icon.png"))); // NOI18N
         jButtonRecuperar.setText("Recuperar");
         jButtonRecuperar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,11 +124,15 @@ public class Forgot extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldSSenha.setEditable(false);
+
         jLabelNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelNome.setText("Nome");
 
         jLabelPSeguranca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelPSeguranca.setText("Pergunta de Segurança");
+
+        jTextFieldNome.setEditable(false);
 
         jLabelResposta.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelResposta.setText("Resposta");
@@ -213,22 +224,25 @@ public class Forgot extends javax.swing.JFrame {
         jPanel1.getAccessibleContext().setAccessibleDescription("");
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
         // TODO add your handling code here:
-        Pesquisar();
+        Search();
+        
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
     private void jButtonRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRecuperarActionPerformed
         // TODO add your handling code here:
-        Recuperar();
+        Retrive();
     }//GEN-LAST:event_jButtonRecuperarActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        // TODO add your handling code here:
         setVisible(false);
-        Login lgn = new Login();
-        lgn.setVisible(true);
+        Login ob = new Login();
+        ob.setVisible(true);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**

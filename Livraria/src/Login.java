@@ -66,6 +66,11 @@ public class Login extends javax.swing.JFrame {
 
         jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/new-file-icon.png"))); // NOI18N
         jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarActionPerformed(evt);
+            }
+        });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/Security-Password-2-icon.png"))); // NOI18N
 
@@ -154,6 +159,11 @@ public class Login extends javax.swing.JFrame {
         Forgot eSenha = new Forgot();
         eSenha.setVisible(true);
     }//GEN-LAST:event_jButtonESenhaActionPerformed
+
+    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        Signup cadastrar = new Signup();
+        cadastrar.setVisible(true);
+    }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     /**
      * @param args the command line arguments

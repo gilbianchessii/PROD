@@ -196,7 +196,7 @@ public class Login extends javax.swing.JFrame {
 
 			
         }else{
-	JOptionPane.showMessageDialog(null, e);
+	JOptionPane.showMessageDialog(null, "Nome de usuário ou senha incorretos");
 	    
         }catch(Exception e){
 	JOptionPane.showMessageDialog(null, e)

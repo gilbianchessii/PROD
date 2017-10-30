@@ -156,11 +156,13 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonESenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonESenhaActionPerformed
+        setVisible(false);
         Forgot eSenha = new Forgot();
         eSenha.setVisible(true);
     }//GEN-LAST:event_jButtonESenhaActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        setVisible(false);
         Signup cadastrar = new Signup();
         cadastrar.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed

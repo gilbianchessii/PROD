@@ -10,55 +10,55 @@
  */
 public class Forgot extends javax.swing.JFrame {
 
-
     public Esqueceu() {
-        super('Esqueceu a senha');
+        super(
+         'Esqueceu a senha'
+        );
         initComponents();
         conn = javaconnect.ConnerDb();
-        
+
     }
-    
-    public void Pesquisar(){
+
+    public void Pesquisar() {
         a1 = jTextFieldNome.getText();
-        String sql = "select * from conta where usuario = '"+a1+"'";
-        if(rs.next()){
+        String sql = "select * from conta where usuario = '" + a1 + "'";
+        if (rs.next()) {
             jTextFieldUsuario.setText(rs.getString(1));
             jTextFieldUsuario.setText(rs.getString(4));
             rs.close();
             pst.close();
-        }
-       
-        else{
-            JOptionPane.showMessageDialog(null), 'Nome de Usuário Incorreto');
+        } else {
+            JOptionPane.showMessageDialog(null)
+            ,  
+             
+        'Nome de Usuário Incorreto');
         }
         
-        catch(Exception e){
+        catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e)
+                }
+
+    }
+
+    public void Recuperar() {
+
+        String a1 = jTextFieldNome;
+        String a2 = jTextFieldUsuario;
+        String sql = "select * from conta where resposta = '" + a2 + "'";
+
+        try {
+            pst = conn.preparedStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                jTextFieldResposta.setText(rs.getString(5));
+            }
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e)
-                            }
-        
+        }
+
     }
 
-    public void Recuperar(){
-
-   String a1 = jTextFieldNome;
-   String a2 = jTextFieldUsuario;
-   String sql = "select * from conta where resposta = '"+a2+"'";
-
-    
-    try{
-	pst = conn.preparedStatement(sql);
-	rs = pst.executeQuery();
-		if(rs.next()){
-		jTextFieldResposta.setText(rs.getString(5));			      }
-
-	}catch(Exception e) {
-		JOptionPane.showMessageDialog(null, e)
-	}
-			
-    }
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -226,10 +226,9 @@ public class Forgot extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRecuperarActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        // TODO add your handling code here:
         setVisible(false);
-        Login ob = new Login();
-        ob.setVisible(true);
+        Login lgn = new Login();
+        lgn.setVisible(true);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**

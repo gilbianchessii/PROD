@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -42,7 +45,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Login", 0, 0, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(0, 153, 204))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(0, 153, 204))); // NOI18N
 
         jLabelPLogin.setForeground(new java.awt.Color(255, 0, 0));
         jLabelPLogin.setText("Problema ao efetuar Login...");
@@ -55,6 +58,11 @@ public class Login extends javax.swing.JFrame {
 
         jButtonLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/inside-logout-icon.png"))); // NOI18N
         jButtonLogin.setText("Login");
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoginActionPerformed(evt);
+            }
+        });
 
         jButtonESenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/mini_Icon_ForgotPassw.png"))); // NOI18N
         jButtonESenha.setText("Esqueci a Senha");
@@ -167,6 +175,48 @@ public class Login extends javax.swing.JFrame {
         Signup cadastrar = new Signup();
         cadastrar.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
+
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
+        // TODO add your handling code here:
+        String sql = "select * from conta where usuario=? and senha=?"
+
+	try{
+	pst = conn.prepareStatement(sql);
+	pst.setString(1,JTextFieldNome.getText());				
+	pst.setString(3,JTextFieldSenha.getText());
+	rs = pst.executeQuery();
+	
+	if(rs.next)	{
+		rs.close();
+		pst.close();	
+		setVisible(false);
+		Loading ob = new Loading();
+		ob.setVisible(true)
+			}
+
+			
+        }else{
+	JOptionPane.showMessageDialog(null, e);
+	    
+        }catch(Exception e){
+	JOptionPane.showMessageDialog(null, e)
+                          
+
+        }finally{
+	rs.close();
+	pst.close();	
+               }
+
+        try{
+            rs.close();
+            pst.close();
+        
+
+        }catch(Exception e){
+                          }
+        
+	
+    }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**
      * @param args the command line arguments

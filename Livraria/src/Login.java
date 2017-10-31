@@ -174,8 +174,8 @@ PreparedStatement stmt;
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        Signup sgp=new Signup();
-        sgp.setVisible(true);
+        Signup ob=new Signup();
+        ob.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonESenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonESenhaActionPerformed

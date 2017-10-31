@@ -80,21 +80,15 @@
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextFieldResposta" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBoxPSegurança" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldSenha" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldNome" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextFieldUsuario" min="-2" pref="131" max="-2" attributes="0"/>
-                              </Group>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jTextFieldSenha" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldNome" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldUsuario" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jComboBoxPSegurança" alignment="0" pref="166" max="32767" attributes="0"/>
+                              <Component id="jTextFieldResposta" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

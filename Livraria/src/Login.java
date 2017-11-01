@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-//Login
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -52,7 +52,7 @@ PreparedStatement stmt;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(0, 153, 204))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Login", 0, 0, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(0, 153, 204))); // NOI18N
 
         jLabelPLogin.setForeground(new java.awt.Color(255, 0, 0));
         jLabelPLogin.setText("Problema ao efetuar Login...");
@@ -188,32 +188,31 @@ PreparedStatement stmt;
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
         String sql="SELECT * FROM Conta WHERE Username=? and Password=?";
-       try {
-           stmt=con.prepareStatement(sql);
-           stmt.setString(1,jTextFieldUsuario.getText());
-           stmt.setString(2,jPasswordFieldSenha.getText());
-           rs=stmt.executeQuery();
-           if(rs.next()){
-               rs.close();
-               stmt.close();
-           setVisible(false);
-           Loading ob=new Loading();
-           
-           ob.setVisible(true);
-           }else{
-               JOptionPane.showMessageDialog(null, "Usuário ou Senha Incorretos");
-           }
-       } catch (Exception e) {
-           JOptionPane.showMessageDialog(null, e);
-       
-       }finally{
-           try {
-           rs.close();
-           stmt.close();
-           } catch (Exception e) {
-               
-               }
-           }
+        try {
+            stmt=con.prepareStatement(sql);
+            stmt.setString(1,jTextFieldUsuario.getText());
+            stmt.setString(2,jPasswordFieldSenha.getText());
+            rs=stmt.executeQuery();
+            if(rs.next()){
+                rs.close();
+                stmt.close();
+        setVisible(false);
+        Loading ob=new Loading();
+        ob.setUpLoading();
+        ob.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuário ou Senha Incorretos");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }finally{
+            try {
+            rs.close();
+            stmt.close();
+            } catch (Exception e) {
+            }
+            
+        }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**

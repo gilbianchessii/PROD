@@ -1,3 +1,9 @@
+
+import Connection.JavaConnect;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,12 +15,16 @@
  * @author Administrador
  */
 public class Return extends javax.swing.JFrame {
-
+Connection con;
+ResultSet rs;
+PreparedStatement stmt;
     /**
      * Creates new form Return
      */
     public Return() {
+        super("Return Book");
         initComponents();
+        con = JavaConnect.ConnectDb();
     }
 
     /**
@@ -122,6 +132,11 @@ public class Return extends javax.swing.JFrame {
         jButtonPesquisar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButtonPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/search.gif"))); // NOI18N
         jButtonPesquisar.setText("Pesquisar");
+        jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -287,6 +302,29 @@ public class Return extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(704, 458));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
+        // TODO add your handling code here:
+        String sql = "SELECT * FROM problema WHERE id_estudante=?";
+        try{
+            stmt=con.prepareStatement(sql);
+            stmt.setString(7, jTextFieldEstudante.getText());
+            rs=stmt.executeQuery();
+            if(rs.next()){
+                String add1=rs.getString("");
+                jTextFieldNomeE.setText(add1);
+                
+                rs.close();
+                stmt.close();
+            }
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }finally{
+            try{
+                
+            }
+        }
+    }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
     /**
      * @param args the command line arguments

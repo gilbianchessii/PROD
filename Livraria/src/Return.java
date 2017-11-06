@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -27,6 +28,43 @@ PreparedStatement stmt;
         initComponents();
         con = JavaConnect.ConnectDb();
     }
+public void Delete(){
+String sql ="delete from  problema Student_ID=?";
+try {
+     stmt=con.prepareStatement(sql);
+     stmt.setString(1,jTextFieldEstudante.getText());
+    stmt.execute();
+    }catch(Exception e){
+    JOptionPane.showMessageDialog(null,e);
+    }
+}
+ public void ReturnUpdate(){
+  String sql="insert into Return(Student_id,Name,FName,Course,Branch,Year,Semester,Book_id,BName,Edition.Publisher,Price,Pages,DOI,DOR)";
+try{
+  stmt=con.prepareStatement(sql);
+   stmt.setString(1,jTextFieldEstudante.getText());
+   stmt.setString(2,jTextFieldNomeE.getText());
+  stmt.setString(3,jTextFieldNomeP.getText());
+   stmt.setString(4,jTextFieldCurso.getText());
+  stmt.setString(5,jTextFieldTurno.getText());
+  stmt.setString(6,jTextFieldAno.getText());
+   stmt.setString(7,jTextFieldSemestre.getText());
+  stmt.setString(8,jTextFieldLivroId.getText());
+  stmt.setString(9,jTextFieldNomeL.getText());
+  stmt.setString(10,jTextFieldEdicao.getText());
+   stmt.setString(11,jTextFieldPublicadora.getText());
+  stmt.setString(12,jTextFieldPreco.getText());
+   stmt.setString(13,jTextFieldPaginas.getText());
+   stmt.setString(14,jTextFieldDE.getText()); 
+  stmt.setString(15,((JTextField)jDateChoose2.getDateEditor().getUiComponent()).getText()); // copiar e colar set string 14 do issue
+   stmt.execute();
+  JOptionPane.showMessageDialog(null,"book Returned");
+
+
+   }catch(Exception e){
+    JOptionPane.showMessageDialog(null,e);
+
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,7 +112,7 @@ PreparedStatement stmt;
         jLabel17 = new javax.swing.JLabel();
         jButtonRetorno = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jDateChoose2 = new com.toedter.calendar.JDateChooser();
 
         jLabel8.setText("jLabel8");
 
@@ -238,7 +276,6 @@ PreparedStatement stmt;
                     .addComponent(jTextFieldAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(jTextFieldPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
@@ -257,6 +294,11 @@ PreparedStatement stmt;
         jButtonRetorno.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButtonRetorno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/search.gif"))); // NOI18N
         jButtonRetorno.setText("Retorno");
+        jButtonRetorno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRetornoActionPerformed(evt);
+            }
+        });
 
         jButtonVoltar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/inside-logout-icon.png"))); // NOI18N
@@ -277,8 +319,9 @@ PreparedStatement stmt;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel17)
-                                .addGap(18, 18, 18)
-                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(28, 28, 28)
+                                .addComponent(jDateChoose2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButtonRetorno)
                                 .addGap(43, 43, 43)
@@ -290,21 +333,21 @@ PreparedStatement stmt;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel17)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChoose2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRetorno)
                     .addComponent(jButtonVoltar))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+ }
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
         // TODO add your handling code here:
         String sql = "SELECT * FROM problema WHERE Student_ID=?";
@@ -355,7 +398,13 @@ PreparedStatement stmt;
             }catch(Exception e){
         }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
-}
+    }
+    private void jButtonRetornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRetornoActionPerformed
+        // TODO add your handling code here:
+        Delete();
+ReturnUpdate();
+    }//GEN-LAST:event_jButtonRetornoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -389,13 +438,13 @@ PreparedStatement stmt;
                 new Return().setVisible(true);
             }
         });
-    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JButton jButtonRetorno;
     private javax.swing.JButton jButtonVoltar;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChoose2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

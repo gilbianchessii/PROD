@@ -3,6 +3,7 @@ import Connection.JavaConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -45,7 +46,7 @@ PreparedStatement stmt;
         jTextFieldPreco = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTextFieldDE = new javax.swing.JTextField();
-        jTextFieldLivro = new javax.swing.JTextField();
+        jTextFieldLivroId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldSemestre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -182,14 +183,13 @@ PreparedStatement stmt;
                                     .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldLivro)
+                            .addComponent(jTextFieldLivroId)
                             .addComponent(jTextFieldNomeL)
                             .addComponent(jTextFieldEdicao)
                             .addComponent(jTextFieldPublicadora)
                             .addComponent(jTextFieldPreco)
                             .addComponent(jTextFieldPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel15)
                         .addGap(18, 18, 18)
                         .addComponent(jTextFieldDE, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -203,7 +203,7 @@ PreparedStatement stmt;
                     .addComponent(jLabel1)
                     .addComponent(jTextFieldEstudante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextFieldLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldLivroId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonPesquisar))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -305,27 +305,55 @@ PreparedStatement stmt;
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
         // TODO add your handling code here:
-        String sql = "SELECT * FROM problema WHERE id_estudante=?";
+        String sql = "SELECT * FROM problema WHERE Student_id=?";
         try{
             stmt=con.prepareStatement(sql);
-            stmt.setString(7, jTextFieldEstudante.getText());
+            stmt.setString(1, jTextFieldEstudante.getText());
             rs=stmt.executeQuery();
             if(rs.next()){
-                String add1=rs.getString("");
+                String add1=rs.getString("SName");
                 jTextFieldNomeE.setText(add1);
+                String add2=rs.getString("FName");
+                jTextFieldNomeP.setText(add2);
+                String add3=rs.getString("Course");
+                jTextFieldCurso.setText(add3);
+                String add4=rs.getString("Branch");
+                jTextFieldTurno.setText(add4);
+                String add5=rs.getString("Year");
+                jTextFieldAno.setText(add5);
+                String add6=rs.getString("Semester");
+                jTextFieldSemestre.setText(add6);
+                String add7=rs.getString("Book_Id");
+                jTextFieldLivroId.setText(add7);
+                String add8=rs.getString("Name");
+                jTextFieldLivroId.setText(add8);
+                String add9=rs.getString("Edition");
+                jTextFieldLivroId.setText(add9);
+                String add10=rs.getString("Publisher");
+                jTextFieldLivroId.setText(add10);
+                String add11=rs.getString("Price");
+                jTextFieldLivroId.setText(add11);
+                String add12=rs.getString("Pages");
+                jTextFieldLivroId.setText(add12);
+                String add13=rs.getString("DateOfIssue");
+                jTextFieldLivroId.setText(add13);
                 
                 rs.close();
                 stmt.close();
+            
+            } else{ 
+                JOptionPane.showMessageDialog(null, "Livro não está registrado com o id deste aluno" );
             }
         }catch(Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }finally{
             try{
-                
-            }
+                rs.close();
+                stmt.close();
+            }catch(Exception e){
         }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
-
+}
     /**
      * @param args the command line arguments
      */
@@ -391,7 +419,7 @@ PreparedStatement stmt;
     private javax.swing.JTextField jTextFieldDR;
     private javax.swing.JTextField jTextFieldEdicao;
     private javax.swing.JTextField jTextFieldEstudante;
-    private javax.swing.JTextField jTextFieldLivro;
+    private javax.swing.JTextField jTextFieldLivroId;
     private javax.swing.JTextField jTextFieldNomeE;
     private javax.swing.JTextField jTextFieldNomeL;
     private javax.swing.JTextField jTextFieldNomeP;

@@ -1,20 +1,32 @@
+
+import Connection.JavaConnect;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Usuario
  */
 public class Issue extends javax.swing.JFrame {
 
+    Connection con;
+    ResultSet rs;
+    PreparedStatement stmt;
+
     /**
      * Creates new form Issue
      */
     public Issue() {
+        super("Issue Book");
         initComponents();
+        con = JavaConnect.ConnectDb();
     }
 
     /**
@@ -34,7 +46,7 @@ public class Issue extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldIdLivro = new javax.swing.JTextField();
-        jTextFieldNome = new javax.swing.JTextField();
+        jTextFieldNomeLivro = new javax.swing.JTextField();
         jTextFieldEdicao = new javax.swing.JTextField();
         jTextFieldEditora = new javax.swing.JTextField();
         jTextFieldPreco = new javax.swing.JTextField();
@@ -85,7 +97,7 @@ public class Issue extends javax.swing.JFrame {
 
         jTextFieldIdLivro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jTextFieldNome.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTextFieldNomeLivro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jTextFieldEdicao.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
@@ -98,6 +110,11 @@ public class Issue extends javax.swing.JFrame {
         jButtonProcurar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButtonProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/search.gif"))); // NOI18N
         jButtonProcurar.setText("Procurar");
+        jButtonProcurar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProcurarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,7 +131,7 @@ public class Issue extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                    .addComponent(jTextFieldNomeLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                     .addComponent(jTextFieldEdicao)
                     .addComponent(jTextFieldEditora)
                     .addComponent(jTextFieldPreco)
@@ -135,7 +152,7 @@ public class Issue extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNomeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -268,6 +285,11 @@ public class Issue extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/inside-logout-icon.png"))); // NOI18N
         jButton3.setText("Voltar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -309,6 +331,46 @@ public class Issue extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        setVisible(false);
+        Home hm = new Home();
+        hm.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButtonProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcurarActionPerformed
+        String sql = "SELECT * FROM livro WHERE Book_ID = ?";
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, jTextFieldIdLivro.getText());
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("Name");
+                jTextFieldNomeLivro.setText(add1);
+                String add2 = rs.getString("Edition");
+                jTextFieldEdicao.setText(add2);
+                String add3 = rs.getString("Publisher");
+                jTextFieldEditora.setText(add3);
+                String add4 = rs.getString("Price");
+                jTextFieldPreco.setText(add4);
+                String add5 = rs.getString("Pages");
+                jTextFieldPaginas.setText(add5);
+                rs.close();
+                stmt.close();
+            } else {
+                JOptionPane.showMessageDialog(null, "ID do livro não encontrado.");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }finally{
+            try{
+                rs.close();
+                stmt.close();
+            }catch(Exception ex){
+                
+            }
+        }
+    }//GEN-LAST:event_jButtonProcurarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,8 +435,8 @@ public class Issue extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldEditora;
     private javax.swing.JTextField jTextFieldIdEstudante;
     private javax.swing.JTextField jTextFieldIdLivro;
-    private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldNomeEstudante;
+    private javax.swing.JTextField jTextFieldNomeLivro;
     private javax.swing.JTextField jTextFieldNomePai;
     private javax.swing.JTextField jTextFieldPaginas;
     private javax.swing.JTextField jTextFieldPreco;

@@ -384,28 +384,38 @@ public class Issue extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String sql="INSERT INTO problema(Book_ID,Name,Edition,Publisher,Price,Pages,Student_ID,SName,FName,Course,Branch,Year,Semester,DateOfIssue) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql="SELECT * FROM estudante WHERE Student_ID=?";
         try {
             stmt=con.prepareStatement(sql);
-            stmt.setString(1, jTextFieldIdLivro.getText());
-            stmt.setString(2, jTextFieldNomeLivro.getText());
-            stmt.setString(3, jTextFieldEdicao.getText());
-            stmt.setString(4, jTextFieldEditora.getText());
-            stmt.setString(5, jTextFieldPreco.getText());
-            stmt.setString(6, jTextFieldPaginas.getText());
-            stmt.setString(7, jTextFieldIdEstudante.getText());
-            stmt.setString(8, jTextFieldNomeEstudante.getText());
-            stmt.setString(9, jTextFieldNomePai.getText());
-            stmt.setString(10, jTextFieldCurso.getText());
-            stmt.setString(11, jTextFieldRamo.getText());
-            stmt.setString(12, jTextFieldAno.getText());
-            stmt.setString(13, jTextFieldSemestre.getText());
-            stmt.setString(14, ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText());
-            stmt.execute();
-            JOptionPane.showMessageDialog(null,"Book Issued");
+            stmt.setString(1, jTextFieldIdEstudante.getText());
+            rs=stmt.executeQuery();
+            if(rs.next()){
+                String add1=rs.getString("Name");
+                jTextFieldNomeEstudante.setText(add1);
+                String add2=rs.getString("Father");
+                jTextFieldNomePai.setText(add2);
+                String add3=rs.getString("Course");
+                jTextFieldCurso.setText(add3);
+                String add4=rs.getString("Branch");
+                jTextFieldRamo.setText(add4);
+                String add5=rs.getString("Year");
+                jTextFieldAno.setText(add5);
+                String add6=rs.getString("Semester");
+                jTextFieldSemestre.setText(add6);
+                rs.close();
+                stmt.close();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "ID do Estudante não Encontrado");
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
-        }
+        }finally{
+            try {
+            rs.close();
+            stmt.close();
+         } catch (Exception e) {}
+                    }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

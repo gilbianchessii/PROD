@@ -72,11 +72,11 @@ public class Issue extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalhes: Livros", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 24))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Detalhes: Livros", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 24))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setText("ID Livro");
@@ -109,7 +109,7 @@ public class Issue extends javax.swing.JFrame {
         jTextFieldPaginas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jButtonProcurar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButtonProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/search.gif"))); // NOI18N
+        jButtonProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/SEO-icon-1.png"))); // NOI18N
         jButtonProcurar.setText("Procurar");
         jButtonProcurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,7 +173,7 @@ public class Issue extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalhes: Estudante", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 24))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)), "Detalhes: Estudante", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 24))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setText("ID Estudante");
@@ -211,7 +211,7 @@ public class Issue extends javax.swing.JFrame {
         jTextFieldSemestre.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/search.gif"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/SEO-icon-1.png"))); // NOI18N
         jButton1.setText("Procurar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,11 +285,16 @@ public class Issue extends javax.swing.JFrame {
         jLabel14.setText("Data da Emissão");
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/Save-icon.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/icon_copy.gif"))); // NOI18N
         jButton2.setText("Emissão");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/inside-logout-icon.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/User-Interface-Logout-icon-1.png"))); // NOI18N
         jButton3.setText("Voltar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,7 +321,7 @@ public class Issue extends javax.swing.JFrame {
                                 .addComponent(jButton3))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -327,15 +332,15 @@ public class Issue extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel14)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -419,6 +424,32 @@ public class Issue extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String sql="INSERT INTO problema(Book_ID,Name,Edition,Publisher,Price,Pages,Student_ID,SName,FName,Course,Branch,Year,Semester,DateOfIssue) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try{
+        stmt=con.prepareStatement(sql);
+        stmt.setString(1, jTextFieldIdLivro.getText());
+        stmt.setString(2, jTextFieldNomeLivro.getText());
+        stmt.setString(3, jTextFieldEdicao.getText());
+        stmt.setString(4, jTextFieldEditora.getText());
+        stmt.setString(5, jTextFieldPreco.getText());
+        stmt.setString(6, jTextFieldPaginas.getText());
+        stmt.setString(7, jTextFieldIdEstudante.getText());
+        stmt.setString(8, jTextFieldNomeEstudante.getText());
+        stmt.setString(9, jTextFieldNomePai.getText());
+        stmt.setString(10, jTextFieldCurso.getText());
+        stmt.setString(11, jTextFieldRamo.getText());
+        stmt.setString(12, jTextFieldAno.getText());
+        stmt.setString(13, jTextFieldSemestre.getText());
+        stmt.setString(14, ((JTextField)jDateChooser2.getDateEditor().getUiComponent()).getText());
+        stmt.execute();
+        JOptionPane.showMessageDialog(null, "Book Issued");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -459,7 +490,7 @@ public class Issue extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonProcurar;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

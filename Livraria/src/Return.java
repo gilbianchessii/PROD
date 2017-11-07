@@ -28,42 +28,42 @@ PreparedStatement stmt;
         initComponents();
         con = JavaConnect.ConnectDb();
     }
+    
 public void Delete(){
-String sql ="delete from  problema Student_ID=?";
+String sql ="DELETE FROM problema WHERE Student_ID=?";
 try {
      stmt=con.prepareStatement(sql);
      stmt.setString(1,jTextFieldEstudante.getText());
-    stmt.execute();
+     stmt.execute();
     }catch(Exception e){
     JOptionPane.showMessageDialog(null,e);
     }
 }
- public void ReturnUpdate(){
-  String sql="insert into Return(Student_id,Name,FName,Course,Branch,Year,Semester,Book_id,BName,Edition.Publisher,Price,Pages,DOI,DOR)";
-try{
-  stmt=con.prepareStatement(sql);
-   stmt.setString(1,jTextFieldEstudante.getText());
-   stmt.setString(2,jTextFieldNomeE.getText());
-  stmt.setString(3,jTextFieldNomeP.getText());
-   stmt.setString(4,jTextFieldCurso.getText());
-  stmt.setString(5,jTextFieldTurno.getText());
-  stmt.setString(6,jTextFieldAno.getText());
-   stmt.setString(7,jTextFieldSemestre.getText());
-  stmt.setString(8,jTextFieldLivroId.getText());
-  stmt.setString(9,jTextFieldNomeL.getText());
-  stmt.setString(10,jTextFieldEdicao.getText());
-   stmt.setString(11,jTextFieldPublicadora.getText());
-  stmt.setString(12,jTextFieldPreco.getText());
-   stmt.setString(13,jTextFieldPaginas.getText());
-   stmt.setString(14,jTextFieldDE.getText()); 
-  stmt.setString(15,((JTextField)jDateChoose2.getDateEditor().getUiComponent()).getText()); // copiar e colar set string 14 do issue
-   stmt.execute();
-  JOptionPane.showMessageDialog(null,"book Returned");
 
-
-   }catch(Exception e){
-    JOptionPane.showMessageDialog(null,e);
-
+public void ReturnUpdate(){
+    String sql="INSERT INTO retorno(Student_ID,Name,FName,Course,Branch,Year,Semester,Book_ID,BName,Edition,Publisher,Price,Pages,DOI,DOR) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    try{
+    stmt=con.prepareStatement(sql);
+    stmt.setString(1, jTextFieldEstudante.getText());
+    stmt.setString(2, jTextFieldNomeE.getText());
+    stmt.setString(3, jTextFieldNomeP.getText());
+    stmt.setString(4, jTextFieldCurso.getText());
+    stmt.setString(5, jTextFieldTurno.getText());
+    stmt.setString(6, jTextFieldAno.getText());
+    stmt.setString(7, jTextFieldSemestre.getText());
+    stmt.setString(8, jTextFieldLivro.getText());
+    stmt.setString(9, jTextFieldNomeL.getText());
+    stmt.setString(10, jTextFieldEdicao.getText());
+    stmt.setString(11, jTextFieldPublicadora.getText());
+    stmt.setString(12, jTextFieldPreco.getText());
+    stmt.setString(13, jTextFieldPaginas.getText());
+    stmt.setString(14, jTextFieldDE.getText());
+    stmt.setString(15, ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText());
+    stmt.execute();
+    JOptionPane.showMessageDialog(null, "Book Returned");
+    }catch(Exception e){
+        JOptionPane.showMessageDialog(null, e+" RUpd");
+    }
 }
 
     /**
@@ -83,7 +83,8 @@ try{
         jTextFieldNomeL = new javax.swing.JTextField();
         jTextFieldPreco = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextFieldLivroId = new javax.swing.JTextField();
+        jTextFieldDE = new javax.swing.JTextField();
+        jTextFieldLivro = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldSemestre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -108,11 +109,10 @@ try{
         jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButtonPesquisar = new javax.swing.JButton();
-        jTextFieldDE = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jButtonRetorno = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
-        jDateChoose2 = new com.toedter.calendar.JDateChooser();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         jLabel8.setText("jLabel8");
 
@@ -124,7 +124,7 @@ try{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.MatteBorder(null), "Painel de Retorno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(204, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Painel de Retorno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(204, 0, 0))); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel12.setText("Publicadora:");
@@ -169,7 +169,7 @@ try{
         jLabel4.setText("Curso:");
 
         jButtonPesquisar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jButtonPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/search.gif"))); // NOI18N
+        jButtonPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/SEO-icon-1.png"))); // NOI18N
         jButtonPesquisar.setText("Pesquisar");
         jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,7 +221,7 @@ try{
                                     .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldLivroId)
+                            .addComponent(jTextFieldLivro)
                             .addComponent(jTextFieldNomeL)
                             .addComponent(jTextFieldEdicao)
                             .addComponent(jTextFieldPublicadora)
@@ -230,8 +230,7 @@ try{
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextFieldDE, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jTextFieldDE, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -242,7 +241,7 @@ try{
                     .addComponent(jLabel1)
                     .addComponent(jTextFieldEstudante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextFieldLivroId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonPesquisar))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -276,15 +275,14 @@ try{
                     .addComponent(jTextFieldAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(jTextFieldPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
                         .addComponent(jTextFieldSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(jTextFieldDE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel15)
+                        .addComponent(jTextFieldDE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -292,7 +290,7 @@ try{
         jLabel17.setText("Data de Retorno:");
 
         jButtonRetorno.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jButtonRetorno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/search.gif"))); // NOI18N
+        jButtonRetorno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/icon_copy.gif"))); // NOI18N
         jButtonRetorno.setText("Retorno");
         jButtonRetorno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,8 +299,13 @@ try{
         });
 
         jButtonVoltar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/inside-logout-icon.png"))); // NOI18N
+        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/User-Interface-Logout-icon-1.png"))); // NOI18N
         jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -319,35 +322,35 @@ try{
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel17)
-                                .addGap(28, 28, 28)
-                                .addComponent(jDateChoose2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37))
+                                .addGap(18, 18, 18)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButtonRetorno)
                                 .addGap(43, 43, 43)
-                                .addComponent(jButtonVoltar)))
-                        .addGap(42, 42, 42))))
+                                .addComponent(jButtonVoltar)
+                                .addGap(42, 42, 42))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel17)
-                    .addComponent(jDateChoose2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRetorno)
                     .addComponent(jButtonVoltar))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(704, 458));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
- }
+
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
         // TODO add your handling code here:
         String sql = "SELECT * FROM problema WHERE Student_ID=?";
@@ -358,7 +361,7 @@ try{
             if(rs.next()){
                 String add1=rs.getString("SName");
                 jTextFieldNomeE.setText(add1);
-                String add2=rs.getString("FName");
+               String add2=rs.getString("FName");
                 jTextFieldNomeP.setText(add2);
                 String add3=rs.getString("Course");
                 jTextFieldCurso.setText(add3);
@@ -369,7 +372,7 @@ try{
                 String add6=rs.getString("Semester");
                 jTextFieldSemestre.setText(add6);
                 String add7=rs.getString("Book_ID");
-                jTextFieldLivroId.setText(add7);
+                jTextFieldLivro.setText(add7);
                 String add8=rs.getString("Name");
                 jTextFieldNomeL.setText(add8);
                 String add9=rs.getString("Edition");
@@ -385,24 +388,32 @@ try{
                 
                 rs.close();
                 stmt.close();
-            
-            } else{ 
-                JOptionPane.showMessageDialog(null, "Livro não está registrado com o id deste aluno" );
+            }else{
+                JOptionPane.showMessageDialog(null, "Book is not Issued with this Student ID");
             }
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+           JOptionPane.showMessageDialog(null, e);
         }finally{
             try{
                 rs.close();
                 stmt.close();
-            }catch(Exception e){
+            }catch(Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
         }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
-    }
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        Home ob = new Home();
+        ob.setVisible(true);
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+
     private void jButtonRetornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRetornoActionPerformed
         // TODO add your handling code here:
         Delete();
-ReturnUpdate();
+        ReturnUpdate();
     }//GEN-LAST:event_jButtonRetornoActionPerformed
 
     /**
@@ -438,13 +449,13 @@ ReturnUpdate();
                 new Return().setVisible(true);
             }
         });
-}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JButton jButtonRetorno;
     private javax.swing.JButton jButtonVoltar;
-    private com.toedter.calendar.JDateChooser jDateChoose2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -470,7 +481,7 @@ ReturnUpdate();
     private javax.swing.JTextField jTextFieldDE;
     private javax.swing.JTextField jTextFieldEdicao;
     private javax.swing.JTextField jTextFieldEstudante;
-    private javax.swing.JTextField jTextFieldLivroId;
+    private javax.swing.JTextField jTextFieldLivro;
     private javax.swing.JTextField jTextFieldNomeE;
     private javax.swing.JTextField jTextFieldNomeL;
     private javax.swing.JTextField jTextFieldNomeP;

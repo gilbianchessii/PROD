@@ -42,19 +42,19 @@ PreparedStatement stmt;
         jLabel3 = new javax.swing.JLabel();
         jTextFieldResposta = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldSenha = new javax.swing.JTextField();
         jTextFieldUsuario = new javax.swing.JTextField();
         jButtonCriar = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
+        jTextFieldSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)), "Nova Conta", 0, 0, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(0, 153, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)), "Nova Conta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 22), new java.awt.Color(0, 153, 51))); // NOI18N
         jPanel1.setToolTipText("");
 
         jLabel5.setText("Resposta");
 
-        jComboBoxPSegurança.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "qual nome da sua mae?", "nome da primeira professora", "qual time teu pai torce?", "qual nome do seu avô paterno?" }));
+        jComboBoxPSegurança.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qual o nome da sua mãe?", "Qual o nome da sua primeira professora?", "Para qual time seu pai torce?", "Qual nome do seu avô paterno?" }));
 
         jLabel1.setText("Nome");
 
@@ -100,12 +100,12 @@ PreparedStatement stmt;
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario)
-                            .addComponent(jComboBoxPSegurança, javax.swing.GroupLayout.Alignment.LEADING, 0, 166, Short.MAX_VALUE)
-                            .addComponent(jTextFieldResposta))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNome)
+                            .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jComboBoxPSegurança, 0, 166, Short.MAX_VALUE)
+                            .addComponent(jTextFieldResposta, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldSenha))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -233,7 +233,7 @@ PreparedStatement stmt;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldResposta;
-    private javax.swing.JTextField jTextFieldSenha;
+    private javax.swing.JPasswordField jTextFieldSenha;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@
 /**
  *
  * @author Rodrigo
+ * @author Alex
  */
 public class Home extends javax.swing.JFrame {
 
@@ -330,7 +331,13 @@ public class Home extends javax.swing.JFrame {
         ob.setVisible(true);
         
     }//GEN-LAST:event_jButtonIssueBookActionPerformed
-
+/**
+ * 
+ * @Alex
+ * 
+ * Comando para botão [Devolução], onde ocorre a troca de JFrame da HomePage para 
+ * página de [Return].
+ */
     private void jButtonDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDevolucaoActionPerformed
         // TODO add your handling code here:
         setVisible(false);

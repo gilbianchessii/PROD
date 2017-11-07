@@ -65,28 +65,33 @@ PreparedStatement stmt;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)), "New Student", 0, 0, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(0, 102, 153))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)), "Novo Estudante", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(0, 102, 153))); // NOI18N
 
         jButtonBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/inside-logout-icon.png"))); // NOI18N
-        jButtonBack.setText("Back");
+        jButtonBack.setText("Voltar");
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBackActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Student_ID");
+        jLabel1.setText("ID do Estudante");
 
         jComboBoxSemester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
 
-        jComboBoxCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Informática", "Têxtil", "Mecânica", "Redes" }));
+        jComboBoxCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCourseActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setText("Father");
+        jLabel3.setText("Nome do Pai");
 
-        jLabel7.setText("Semester");
+        jLabel7.setText("Semestre");
 
         jButtonRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/Person-Male-Light-icon.png"))); // NOI18N
-        jButtonRegister.setText("Register");
+        jButtonRegister.setText("Registrar");
         jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegisterActionPerformed(evt);
@@ -95,13 +100,13 @@ PreparedStatement stmt;
 
         jComboBoxYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
 
-        jLabel5.setText("Branch");
+        jLabel5.setText("Ramo");
 
-        jLabel4.setText("Course");
+        jLabel4.setText("Curso");
 
-        jLabel2.setText("Name");
+        jLabel2.setText("Nome");
 
-        jLabel6.setText("Year");
+        jLabel6.setText("Ano");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -220,6 +225,10 @@ PreparedStatement stmt;
             JOptionPane.showMessageDialog(null, e+" Registrar");
         }
     }//GEN-LAST:event_jButtonRegisterActionPerformed
+
+    private void jComboBoxCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCourseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCourseActionPerformed
 
     /**
      * @param args the command line arguments

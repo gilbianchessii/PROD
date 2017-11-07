@@ -15,7 +15,10 @@ import javax.swing.JTextField;
 /**
  *
  * @author gilberto
+ * @author Alex
  * 
+ * Classe [Return] com objetivo de realizar o alugamento e retorno de tal livro.
+ * Mais método de conexão com banco de dados.
  */
 public class Return extends javax.swing.JFrame {
 Connection con;
@@ -359,7 +362,13 @@ public void ReturnUpdate(){
         setSize(new java.awt.Dimension(704, 458));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * @author Alex
+     * 
+     * Botão de ação [Pesquisar]
+     * Com o comando sql SELECT e através do ID do estudante, todos os dados 
+     * referentes áquele ID serão exibidos na JFrame.
+     */
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
         // TODO add your handling code here:
         String sql = "SELECT * FROM problema WHERE Student_ID=?";
@@ -411,14 +420,24 @@ public void ReturnUpdate(){
             }
         }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
-
+/**
+ * @author Alex
+ * 
+ * Botão [Voltar] 
+ * Troca de JFrame para tela Home.
+ */
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         Home ob = new Home();
         ob.setVisible(true);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
-
+/**
+ * @author Alex
+ * 
+ * Botão [Retorno]
+ * Executa o método [Delete] e em seguida [ReturnUpdate].
+ */
     private void jButtonRetornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRetornoActionPerformed
         // TODO add your handling code here:
         Delete();

@@ -14,6 +14,16 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Rodrigo
+ * @author Alex
+ */
+
+/**
+ * @author Alex
+ * 
+ * Classe [Forgot] com objetivo de recuperar senha perdida do usuário.
+ * 
+ * Mais método para conexão com o banco de dados.
+ * 
  */
 public class Forgot extends javax.swing.JFrame {
 Connection con;
@@ -25,7 +35,13 @@ PreparedStatement stmt;
         initComponents();
         con = JavaConnect.ConnectDb();
     }
-
+    /* 
+    * @author Alex
+    *
+    * Método [Search] 
+    * Pega texto do campo usuario e através do comando sql SELECT, ele obtém
+    * dados de nome e pergunta de segurança. 
+    */
     public void Search(){
         String a1 = jTextFieldUsuario.getText();
         String sql="SELECT * FROM Conta WHERE Username='"+a1+"'";
@@ -47,7 +63,13 @@ PreparedStatement stmt;
        
         
     }
-    
+    /*
+    * @author Alex
+    *
+    * Método [Retrive]
+    * Através dos campos usuario e resposta, mais sql SELECT apresentado aqui,
+    * Caso a resposta esteja correta, ele irá retornar a senha para o usuario.
+    */
     public void Retrive(){
         String a1 = jTextFieldUsuario.getText();
         String a2 = jTextFieldResposta.getText();
@@ -226,18 +248,30 @@ PreparedStatement stmt;
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * @author Alex
+ * 
+ * Botão de ação [Pesquisar] onde puxa e executa o método [Search]. 
+*/ 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
         // TODO add your handling code here:
         Search();
         
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
-
+/**
+* @author Alex
+* 
+* Botão de ação [Recuperar] onde puxa e executa o método [Retrive].
+*/
     private void jButtonRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRecuperarActionPerformed
         // TODO add your handling code here:
         Retrive();
     }//GEN-LAST:event_jButtonRecuperarActionPerformed
-
+/**
+ * @author Alex
+ * 
+ * Botão de ação [Voltar] onde ocorre a troca de JFrame para a tela [Login].
+ */
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         // TODO add your handling code here:
         setVisible(false);

@@ -45,7 +45,6 @@ PreparedStatement stmt;
         jTextFieldNomeL = new javax.swing.JTextField();
         jTextFieldPreco = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextFieldDE = new javax.swing.JTextField();
         jTextFieldLivroId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldSemestre = new javax.swing.JTextField();
@@ -71,10 +70,11 @@ PreparedStatement stmt;
         jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButtonPesquisar = new javax.swing.JButton();
+        jTextFieldDE = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jTextFieldDR = new javax.swing.JTextField();
         jButtonRetorno = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         jLabel8.setText("jLabel8");
 
@@ -192,7 +192,8 @@ PreparedStatement stmt;
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextFieldDE, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldDE, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -242,9 +243,11 @@ PreparedStatement stmt;
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
                         .addComponent(jTextFieldSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel15)
-                        .addComponent(jTextFieldDE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(jTextFieldDE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
 
@@ -275,13 +278,12 @@ PreparedStatement stmt;
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldDR, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26))
+                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButtonRetorno)
                                 .addGap(43, 43, 43)
-                                .addComponent(jButtonVoltar)
-                                .addGap(42, 42, 42))))))
+                                .addComponent(jButtonVoltar)))
+                        .addGap(42, 42, 42))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,23 +291,23 @@ PreparedStatement stmt;
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel17)
-                    .addComponent(jTextFieldDR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRetorno)
                     .addComponent(jButtonVoltar))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(704, 458));
+        pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
         // TODO add your handling code here:
-        String sql = "SELECT * FROM problema WHERE Student_id=?";
+        String sql = "SELECT * FROM problema WHERE Student_ID=?";
         try{
             stmt=con.prepareStatement(sql);
             stmt.setString(1, jTextFieldEstudante.getText());
@@ -323,7 +325,7 @@ PreparedStatement stmt;
                 jTextFieldAno.setText(add5);
                 String add6=rs.getString("Semester");
                 jTextFieldSemestre.setText(add6);
-                String add7=rs.getString("Book_Id");
+                String add7=rs.getString("Book_ID");
                 jTextFieldLivroId.setText(add7);
                 String add8=rs.getString("Name");
                 jTextFieldNomeL.setText(add8);
@@ -393,6 +395,7 @@ PreparedStatement stmt;
     private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JButton jButtonRetorno;
     private javax.swing.JButton jButtonVoltar;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -416,7 +419,6 @@ PreparedStatement stmt;
     private javax.swing.JTextField jTextFieldAno;
     private javax.swing.JTextField jTextFieldCurso;
     private javax.swing.JTextField jTextFieldDE;
-    private javax.swing.JTextField jTextFieldDR;
     private javax.swing.JTextField jTextFieldEdicao;
     private javax.swing.JTextField jTextFieldEstudante;
     private javax.swing.JTextField jTextFieldLivroId;

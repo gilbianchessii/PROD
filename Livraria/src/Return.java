@@ -14,7 +14,8 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Administrador
+ * @author gilberto
+ * 
  */
 public class Return extends javax.swing.JFrame {
 Connection con;
@@ -28,6 +29,10 @@ PreparedStatement stmt;
         initComponents();
         con = JavaConnect.ConnectDb();
     }
+    /**
+     * @ author gilberto
+     * Deleta os dados sobre o livro que foi devolvido
+     */
     
 public void Delete(){
 String sql ="DELETE FROM problema WHERE Student_ID=?";
@@ -39,6 +44,10 @@ try {
     JOptionPane.showMessageDialog(null,e);
     }
 }
+/**
+ * @ author gilberto
+ * Envia para o banco de dados as informações do livro a ser devolvido
+ */
 
 public void ReturnUpdate(){
     String sql="INSERT INTO retorno(Student_ID,Name,FName,Course,Branch,Year,Semester,Book_ID,BName,Edition,Publisher,Price,Pages,DOI,DOR) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";

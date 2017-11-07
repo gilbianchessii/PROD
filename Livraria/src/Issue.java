@@ -482,8 +482,6 @@ public class Issue extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Issue.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Issue().setVisible(true);

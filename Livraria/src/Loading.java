@@ -13,6 +13,9 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Rodrigo
+ * version 1.2
+ * 
+ * Página de Loading
  */
 public class Loading extends javax.swing.JFrame implements Runnable{
 Connection con;
@@ -21,7 +24,11 @@ Thread th;
 //ResultSet rs;
 //PreparedStatement stmt;
 
-
+/**
+ * @author Rodrigo
+ * @version 1.2
+ * 
+ */
     public Loading() {
         super("Loading");
         initComponents();
@@ -29,13 +36,21 @@ Thread th;
         
         
         }
-    
+    /**
+         * @author Rodrigo
+         * 
+         * Inicia a contagem da barra de progresso
+         */
         public void setUpLoading(){
             setVisible(false);
             th.start();
             
         }
-        
+        /**
+         * @author Rodrigo
+         * 
+         * Progresso da Barra de Loading, após finalizado, é redirecionado para a página Home.
+         */
         public void run(){{
             try {
                 for(int i=1;i<200;i++){

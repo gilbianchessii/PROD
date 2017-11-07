@@ -306,7 +306,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemLogoutActionPerformed
 
     private void jButtonNewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewBookActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
         setVisible(false);
         NewBook ob = new NewBook();
         ob.setVisible(true);

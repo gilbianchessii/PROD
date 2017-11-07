@@ -15,12 +15,16 @@ import javax.swing.UIManager;
 /**
  *
  * @author Rodrigo
+ * @version 1.0
+ * 
  */
 public class Login extends javax.swing.JFrame {
 Connection con;
 ResultSet rs;
 PreparedStatement stmt;
-
+/**
+ *  Conecta com o Banco de Dados
+ */
     public Login() {
         super("Login");
         initComponents();
@@ -170,21 +174,37 @@ PreparedStatement stmt;
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * @author Rodrigo
+ * @param evt 
+ * 
+ * Troca para a tela de "SignUp" (Cadastro) ao pressionar o Botão Registrar.
+ */
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         Signup ob=new Signup();
         ob.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
-
+/**
+ * @author Rodrigo
+ * @param evt 
+ * 
+ * Troca para a Tela de "Forgot", para a recuperação de Senha.
+ */
     private void jButtonESenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonESenhaActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         Forgot ob=new Forgot();
         ob.setVisible(true);
     }//GEN-LAST:event_jButtonESenhaActionPerformed
-
+/**
+ * @author Rodrigo
+ * @version 1.0
+ * @param evt 
+ * 
+ * Checa o Usuário/Senha para realização de Login no Programa.
+ */
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
         String sql="SELECT * FROM Conta WHERE Username=? and Password=?";

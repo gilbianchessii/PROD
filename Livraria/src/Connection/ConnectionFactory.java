@@ -22,6 +22,12 @@ public class ConnectionFactory {
         }
     }
     */
+/**
+ *
+ * @author Rodrigo
+ * 
+ * Conexão com o Banco de Dados MySQL
+ */
 import java.sql.*;
 import javax.swing.JOptionPane;
 public class ConnectionFactory {

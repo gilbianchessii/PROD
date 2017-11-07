@@ -6,14 +6,10 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
- *
- * @author Usuario
+ * @author Matheus B. Barni
+ * @author Rodrigo
+ * @version 1.0
  */
 public class Issue extends javax.swing.JFrame {
 
@@ -68,15 +64,15 @@ public class Issue extends javax.swing.JFrame {
         jTextFieldRamo = new javax.swing.JTextField();
         jTextFieldAno = new javax.swing.JTextField();
         jTextFieldSemestre = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonProcurarEstudante = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonEmissao = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Detalhes: Livros", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 24))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Detalhes: Livros", 0, 0, new java.awt.Font("Arial", 1, 24))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setText("ID Livro");
@@ -173,7 +169,7 @@ public class Issue extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)), "Detalhes: Estudante", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 24))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)), "Detalhes: Estudante", 0, 0, new java.awt.Font("Arial", 1, 24))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setText("ID Estudante");
@@ -210,12 +206,12 @@ public class Issue extends javax.swing.JFrame {
 
         jTextFieldSemestre.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/SEO-icon-1.png"))); // NOI18N
-        jButton1.setText("Procurar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonProcurarEstudante.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButtonProcurarEstudante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/SEO-icon-1.png"))); // NOI18N
+        jButtonProcurarEstudante.setText("Procurar");
+        jButtonProcurarEstudante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonProcurarEstudanteActionPerformed(evt);
             }
         });
 
@@ -243,7 +239,7 @@ public class Issue extends javax.swing.JFrame {
                     .addComponent(jTextFieldAno)
                     .addComponent(jTextFieldSemestre))
                 .addGap(29, 29, 29)
-                .addComponent(jButton1)
+                .addComponent(jButtonProcurarEstudante)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -253,7 +249,7 @@ public class Issue extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jTextFieldIdEstudante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButtonProcurarEstudante))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -284,21 +280,21 @@ public class Issue extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel14.setText("Data da Emissão");
 
-        jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/icon_copy.gif"))); // NOI18N
-        jButton2.setText("Emissão");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEmissao.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButtonEmissao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/icon_copy.gif"))); // NOI18N
+        jButtonEmissao.setText("Emissão");
+        jButtonEmissao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonEmissaoActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/User-Interface-Logout-icon-1.png"))); // NOI18N
-        jButton3.setText("Voltar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVoltar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/User-Interface-Logout-icon-1.png"))); // NOI18N
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonVoltarActionPerformed(evt);
             }
         });
 
@@ -313,12 +309,12 @@ public class Issue extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
+                            .addComponent(jButtonEmissao)
                             .addComponent(jLabel14))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(44, 44, 44)
-                                .addComponent(jButton3))
+                                .addComponent(jButtonVoltar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -338,21 +334,32 @@ public class Issue extends javax.swing.JFrame {
                     .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jButtonEmissao)
+                    .addComponent(jButtonVoltar))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    /**
+     * @author Matheus
+     *  
+     * Volta para tela principal
+     */
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         setVisible(false);
         Home ob = new Home();
         ob.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
+    /**
+     * 
+     * @author Matheus
+     * 
+     * Botão que procura o Id do livro no banco de dados 
+     * e preenche os campos Nome, edição, Editora, preço e páginas
+     */
     private void jButtonProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcurarActionPerformed
         String sql = "SELECT * FROM livro WHERE Book_ID = ?";
         try {
@@ -386,8 +393,13 @@ public class Issue extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButtonProcurarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    /**
+     * @author Matheus
+     *  
+     * Procura o ID do estudante no banco de dados
+     * e preenche os campos Nome, Nome do pai, Curso, Ramo, Ano, Semestre
+     */
+    private void jButtonProcurarEstudanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcurarEstudanteActionPerformed
         // TODO add your handling code here:
         String sql="SELECT * FROM estudante WHERE Student_ID=?";
         try {
@@ -422,9 +434,15 @@ public class Issue extends javax.swing.JFrame {
          } catch (Exception e) {}
                     }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonProcurarEstudanteActionPerformed
+    
+    /**
+     * @author Matheus
+     * 
+     * Ele envia para o banco de dados as informações.
+     * 
+     */
+    private void jButtonEmissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmissaoActionPerformed
         // TODO add your handling code here:
         String sql="INSERT INTO problema(Book_ID,Name,Edition,Publisher,Price,Pages,Student_ID,SName,FName,Course,Branch,Year,Semester,DateOfIssue) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try{
@@ -448,7 +466,7 @@ public class Issue extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonEmissaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -486,10 +504,10 @@ public class Issue extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonEmissao;
     private javax.swing.JButton jButtonProcurar;
+    private javax.swing.JButton jButtonProcurarEstudante;
+    private javax.swing.JButton jButtonVoltar;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

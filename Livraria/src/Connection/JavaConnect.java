@@ -4,8 +4,9 @@ package Connection;
 /**
  *
  * @author Rodrigo
+ * 
+ * Conexão com o Banco de Dados MySQL
  */
-// ConnectionFactory
 import java.sql.*;
 import javax.swing.JOptionPane;
 public class JavaConnect {

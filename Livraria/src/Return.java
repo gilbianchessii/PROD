@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Administrador
+ * @author gilberto
  */
 public class Return extends javax.swing.JFrame {
 Connection con;
@@ -28,6 +28,10 @@ PreparedStatement stmt;
         initComponents();
         con = JavaConnect.ConnectDb();
     }
+    /**
+     * @ author gilberto
+     * 
+     */
     
 public void Delete(){
 String sql ="DELETE FROM problema WHERE Student_ID=?";

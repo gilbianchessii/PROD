@@ -159,6 +159,11 @@ public class Home extends javax.swing.JFrame {
         });
 
         jButtonDevolucao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/return.png"))); // NOI18N
+        jButtonDevolucao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDevolucaoActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Sobre");
@@ -329,6 +334,13 @@ public class Home extends javax.swing.JFrame {
         ob.setVisible(true);
         
     }//GEN-LAST:event_jButtonIssueBookActionPerformed
+
+    private void jButtonDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDevolucaoActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        Return ob = new Return();
+        ob.setVisible(true);
+    }//GEN-LAST:event_jButtonDevolucaoActionPerformed
 
     /**
      * @param args the command line arguments

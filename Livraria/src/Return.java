@@ -6,19 +6,20 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-
 /**
  *
  * @author gilberto
  * @author Alex
- * 
+ *
  * Classe [Return] com objetivo de realizar o alugamento e retorno de tal livro.
  * Mais método de conexão com banco de dados.
  */
 public class Return extends javax.swing.JFrame {
-Connection con;
-ResultSet rs;
-PreparedStatement stmt;
+
+    Connection con;
+    ResultSet rs;
+    PreparedStatement stmt;
+
     /**
      * Creates new form Return
      */
@@ -27,51 +28,52 @@ PreparedStatement stmt;
         initComponents();
         con = JavaConnect.ConnectDb();
     }
-    /**
-     * @ author gilberto
-     * Deleta os dados sobre o livro que foi devolvido
-     */
-    
-public void Delete(){
-String sql ="DELETE FROM problema WHERE Student_ID=?";
-try {
-     stmt=con.prepareStatement(sql);
-     stmt.setString(1,jTextFieldEstudante.getText());
-     stmt.execute();
-    }catch(Exception e){
-    JOptionPane.showMessageDialog(null,e);
-    }
-}
-/**
- * @ author gilberto
- * Envia para o banco de dados as informações do livro a ser devolvido
- */
 
-public void ReturnUpdate(){
-    String sql="INSERT INTO retorno(Student_ID,Name,FName,Course,Branch,Year,Semester,Book_ID,BName,Edition,Publisher,Price,Pages,DOI,DOR) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    try{
-    stmt=con.prepareStatement(sql);
-    stmt.setString(1, jTextFieldEstudante.getText());
-    stmt.setString(2, jTextFieldNomeE.getText());
-    stmt.setString(3, jTextFieldNomeP.getText());
-    stmt.setString(4, jTextFieldCurso.getText());
-    stmt.setString(5, jTextFieldTurno.getText());
-    stmt.setString(6, jTextFieldAno.getText());
-    stmt.setString(7, jTextFieldSemestre.getText());
-    stmt.setString(8, jTextFieldLivro.getText());
-    stmt.setString(9, jTextFieldNomeL.getText());
-    stmt.setString(10, jTextFieldEdicao.getText());
-    stmt.setString(11, jTextFieldPublicadora.getText());
-    stmt.setString(12, jTextFieldPreco.getText());
-    stmt.setString(13, jTextFieldPaginas.getText());
-    stmt.setString(14, jTextFieldDE.getText());
-    stmt.setString(15, ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText());
-    stmt.execute();
-    JOptionPane.showMessageDialog(null, "Book Returned");
-    }catch(Exception e){
-        JOptionPane.showMessageDialog(null, e+" RUpd");
+    /**
+     * @ author gilberto Deleta os dados sobre o livro que foi devolvido
+     */
+
+    public void Delete() {
+        String sql = "DELETE FROM problema WHERE Student_ID=?";
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, jTextFieldEstudante.getText());
+            stmt.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
-}
+
+    /**
+     * @ author gilberto Envia para o banco de dados as informações do livro a
+     * ser devolvido
+     */
+
+    public void ReturnUpdate() {
+        String sql = "INSERT INTO retorno(Student_ID,Name,FName,Course,Branch,Year,Semester,Book_ID,BName,Edition,Publisher,Price,Pages,DOI,DOR) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, jTextFieldEstudante.getText());
+            stmt.setString(2, jTextFieldNomeE.getText());
+            stmt.setString(3, jTextFieldNomeP.getText());
+            stmt.setString(4, jTextFieldCurso.getText());
+            stmt.setString(5, jTextFieldTurno.getText());
+            stmt.setString(6, jTextFieldAno.getText());
+            stmt.setString(7, jTextFieldSemestre.getText());
+            stmt.setString(8, jTextFieldLivro.getText());
+            stmt.setString(9, jTextFieldNomeL.getText());
+            stmt.setString(10, jTextFieldEdicao.getText());
+            stmt.setString(11, jTextFieldPublicadora.getText());
+            stmt.setString(12, jTextFieldPreco.getText());
+            stmt.setString(13, jTextFieldPaginas.getText());
+            stmt.setString(14, jTextFieldDE.getText());
+            stmt.setString(15, ((JTextField) jDateChooser1.getDateEditor().getUiComponent()).getText());
+            stmt.execute();
+            JOptionPane.showMessageDialog(null, "Book Returned");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e + " RUpd");
+        }
+    }
 
     //Não apagar
     @SuppressWarnings("unchecked")
@@ -353,90 +355,86 @@ public void ReturnUpdate(){
         setSize(new java.awt.Dimension(704, 458));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
+
     /**
      * @author Alex
-     * 
-     * Botão de ação [Pesquisar]
-     * Com o comando sql SELECT e através do ID do estudante, todos os dados 
-     * referentes áquele ID serão exibidos na JFrame.
+     *
+     * Botão de ação [Pesquisar] Com o comando sql SELECT e através do ID do
+     * estudante, todos os dados referentes áquele ID serão exibidos na JFrame.
      */
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-        // TODO add your handling code here:
+
         String sql = "SELECT * FROM problema WHERE Student_ID=?";
-        try{
-            stmt=con.prepareStatement(sql);
+        try {
+            stmt = con.prepareStatement(sql);
             stmt.setString(1, jTextFieldEstudante.getText());
-            rs=stmt.executeQuery();
-            if(rs.next()){
-                String add1=rs.getString("SName");
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("SName");
                 jTextFieldNomeE.setText(add1);
-               String add2=rs.getString("FName");
+                String add2 = rs.getString("FName");
                 jTextFieldNomeP.setText(add2);
-                String add3=rs.getString("Course");
+                String add3 = rs.getString("Course");
                 jTextFieldCurso.setText(add3);
-                String add4=rs.getString("Branch");
+                String add4 = rs.getString("Branch");
                 jTextFieldTurno.setText(add4);
-                String add5=rs.getString("Year");
+                String add5 = rs.getString("Year");
                 jTextFieldAno.setText(add5);
-                String add6=rs.getString("Semester");
+                String add6 = rs.getString("Semester");
                 jTextFieldSemestre.setText(add6);
-                String add7=rs.getString("Book_ID");
+                String add7 = rs.getString("Book_ID");
                 jTextFieldLivro.setText(add7);
-                String add8=rs.getString("Name");
+                String add8 = rs.getString("Name");
                 jTextFieldNomeL.setText(add8);
-                String add9=rs.getString("Edition");
+                String add9 = rs.getString("Edition");
                 jTextFieldEdicao.setText(add9);
-                String add10=rs.getString("Publisher");
+                String add10 = rs.getString("Publisher");
                 jTextFieldPublicadora.setText(add10);
-                String add11=rs.getString("Price");
+                String add11 = rs.getString("Price");
                 jTextFieldPreco.setText(add11);
-                String add12=rs.getString("Pages");
+                String add12 = rs.getString("Pages");
                 jTextFieldPaginas.setText(add12);
-                String add13=rs.getString("DateOfIssue");
+                String add13 = rs.getString("DateOfIssue");
                 jTextFieldDE.setText(add13);
-                
+
                 rs.close();
                 stmt.close();
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Book is not Issued with this Student ID");
             }
-        }catch(Exception e) {
-           JOptionPane.showMessageDialog(null, e);
-        }finally{
-            try{
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
                 rs.close();
                 stmt.close();
-            }catch(Exception e) {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
-/**
- * @author Alex
- * 
- * Botão [Voltar] 
- * Troca de JFrame para tela Home.
- */
+    /**
+     * @author Alex
+     *
+     * Botão [Voltar] Troca de JFrame para tela Home.
+     */
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        // TODO add your handling code here:
+
         setVisible(false);
         Home ob = new Home();
         ob.setVisible(true);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
-/**
- * @author Alex
- * 
- * Botão [Retorno]
- * Executa o método [Delete] e em seguida [ReturnUpdate].
- */
+    /**
+     * @author Alex
+     *
+     * Botão [Retorno] Executa o método [Delete] e em seguida [ReturnUpdate].
+     */
     private void jButtonRetornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRetornoActionPerformed
-        // TODO add your handling code here:
+
         Delete();
         ReturnUpdate();
     }//GEN-LAST:event_jButtonRetornoActionPerformed
 
-   
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

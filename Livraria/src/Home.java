@@ -2,6 +2,8 @@
  *
  * @author Rodrigo
  * @author Alex
+ * 
+ * Classe Home, onde nela terá acesso a todas as outras paginas.
  */
 public class Home extends javax.swing.JFrame {
 
@@ -289,12 +291,16 @@ public class Home extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(721, 604));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Sair do programa.
+ */ 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
 
         System.exit(0);
     }//GEN-LAST:event_jMenuItemSairActionPerformed
-
+/**
+ * Abaixo todos os botões são para troca de paginas [JFrame].
+ */
     private void jMenuItemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLogoutActionPerformed
 
         setVisible(false);

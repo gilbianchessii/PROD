@@ -138,7 +138,10 @@ public class About extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(518, 341));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * RETORNA PARA A PAGINA HOME
+ * @param evt 
+ */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         setVisible(false);

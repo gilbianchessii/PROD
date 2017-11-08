@@ -89,9 +89,6 @@
           </Border>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Detalhes Das Issues"/>
-      </AccessibilityProperties>
 
       <Layout>
         <DimensionLayout dim="0">

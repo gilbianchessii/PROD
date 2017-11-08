@@ -53,7 +53,7 @@ public class About extends javax.swing.JFrame {
 
         jLabel8.setText("Yan - /yanric2000");
 
-        jLabel9.setText("Matheus - /Chemical2k");
+        jLabel9.setText("Matheus - /MatheusBBarni");
 
         jLabel10.setText("Alex - /AlexFayterna");
 

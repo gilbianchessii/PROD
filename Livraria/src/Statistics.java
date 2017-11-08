@@ -28,7 +28,7 @@ public class Statistics extends javax.swing.JFrame {
     // Preenche a tabela com dados dos livros
     public void JTable1() {
         try {
-            String sql = "SELECT Book_ID, Name, Edition, Publisher, Price, Pages from ISSUES";
+            String sql = "SELECT Book_ID, Name, Edition, Publisher, Price, Pages from problema";
             stmt = con.prepareStatement(sql);
             rs = stmt.executeQuery();
             jTable1.setModel(DbUtils.resultSetToTableModel(rs)); // Importação de arquivo JAR
@@ -39,12 +39,12 @@ public class Statistics extends javax.swing.JFrame {
     }
 
     // Preenche a tabela com os dados do estudante
-    public void JTable2() {
+        public void JTable2() {
         try {
-            String sql = "SELECT Student_ID, Name, Father, Course, Branch, Year, Semester from estudante";
+            String sql = "SELECT Student_ID, Name, FName, Course, Branch, Year, Semester from retorno";
             stmt = con.prepareStatement(sql);
             rs = stmt.executeQuery();
-            jTable2.setModel(DbUtils.resultSetToTableModel(rs)); // Importação de arquivo JAR
+            jTable3.setModel(DbUtils.resultSetToTableModel(rs)); // Importação de arquivo JAR
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -80,7 +80,7 @@ public class Statistics extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Detalhes Das Issues", 0, 0, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(0, 153, 153))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Detalhes dos Empréstimos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(0, 153, 153))); // NOI18N
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,7 +109,7 @@ public class Statistics extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Retorno Detalhado", 0, 0, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(102, 255, 102))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)), "Retorno Detalhado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(102, 255, 102))); // NOI18N
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -173,8 +173,6 @@ public class Statistics extends javax.swing.JFrame {
                 .addComponent(jButtonVoltar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jPanel1.getAccessibleContext().setAccessibleName("Detalhes Das Issues");
 
         setSize(new java.awt.Dimension(645, 500));
         setLocationRelativeTo(null);

@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Administrador
+ * @author Rodrigo
  */
 public class Student extends javax.swing.JFrame {
 
@@ -17,16 +17,43 @@ public class Student extends javax.swing.JFrame {
     PreparedStatement stmt;
 
     public Student() {
-        super("New Student");
+        super("Novo Aluno");
         initComponents();
         con = JavaConnect.ConnectDb();
-        Random();
-    }
+       // Random();
+       ID();
 
-    public void Random() {
-        Random rd = new Random();
-        jTextFieldStudent_ID.setText("" + rd.nextInt(1000 + 1));
     }
+    /**
+     * Cria ID aleatório
+     */
+
+   //public void Random() {
+ //      Random rd = new Random();
+  //     jTextFieldStudent_ID.setText("" + rd.nextInt(1000 + 1));
+ //  }
+    
+    /**
+     * Cria ID Sequencial para o Cadastro de Estudantes
+     * @return 
+     */
+        public int ID(){
+ int ID = 0;
+try{
+    String sql = "SELECT COUNT(*) from estudante";
+    stmt= con.prepareStatement(sql);
+    rs = stmt.executeQuery();
+    while(rs.next()){
+        ID = rs.getInt("COUNT(*)");
+        ID++;
+    }
+    jTextFieldStudent_ID.setText(Integer.toString(ID));
+}catch (Exception ex){
+}
+return ID;
+
+}
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -67,11 +94,6 @@ public class Student extends javax.swing.JFrame {
         jComboBoxSemester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
 
         jComboBoxCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Informática", "Têxtil", "Mecânica", "Redes" }));
-        jComboBoxCourse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxCourseActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Nome do Pai");
 
@@ -185,14 +207,20 @@ public class Student extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Retorna a Página Home
+ * @param evt 
+ */
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
 
         setVisible(false);
         Home ob = new Home();
         ob.setVisible(true);
     }//GEN-LAST:event_jButtonBackActionPerformed
-
+/**
+ * Registra um novo aluno/estudante no Banco de Dados
+ * @param evt 
+ */
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
 
         String sql = "INSERT INTO estudante(Student_ID, Name, Father, Course, Branch, Year, Semester) VALUES (?,?,?,?,?,?,?)";
@@ -209,13 +237,9 @@ public class Student extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Novo Estudante Registrado");
         } catch (Exception e) {
 
-            JOptionPane.showMessageDialog(null, e + " Registrar");
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButtonRegisterActionPerformed
-
-    private void jComboBoxCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCourseActionPerformed
-
-    }//GEN-LAST:event_jComboBoxCourseActionPerformed
 
     public static void main(String args[]) {
 

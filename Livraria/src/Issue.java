@@ -21,7 +21,7 @@ public class Issue extends javax.swing.JFrame {
      * Cria a nova forma issue
      */
     public Issue() {
-        super("Issue Book");
+        super("Empréstimo");
         initComponents();
         con = JavaConnect.ConnectDb();
     }
@@ -457,7 +457,7 @@ public class Issue extends javax.swing.JFrame {
             stmt.setString(13, jTextFieldSemestre.getText());
             stmt.setString(14, ((JTextField) jDateChooser2.getDateEditor().getUiComponent()).getText());
             stmt.execute();
-            JOptionPane.showMessageDialog(null, "Book Issued");
+            JOptionPane.showMessageDialog(null, "Livro Emprestado");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }

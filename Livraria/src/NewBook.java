@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Rodrigo
+ * 
+ * Cadastro de Novos Livros no Banco de Dados
  */
 public class NewBook extends javax.swing.JFrame {
 
@@ -17,20 +19,48 @@ public class NewBook extends javax.swing.JFrame {
     ResultSet rs;
     PreparedStatement stmt;
 
-    /**
-     * Creates new form NewBook
-     */
     public NewBook() {
-        super("New Book");
+        super("Novo Livro");
         initComponents();
         con = JavaConnect.ConnectDb();
-        Random();
+                //Random();
+        ID();
+
     }
 
-    public void Random() {
-        Random rd = new Random();
-        jTextFieldBookID.setText("" + rd.nextInt(1000 + 1));
+/**
+ * Cria IDs aleatórios
+ */
+//public void Random() {
+//     Random rd = new Random();
+//    jTextFieldBookID.setText("" + rd.nextInt(1000 + 1));
+//}
+   
+    
+    /**
+     * @author Rodrigo
+     * 
+     * Cria IDs sequenciais para o Cadastro de Livros
+     * 
+     * @return ID 
+     */
+    public int ID(){
+ int ID = 0;
+try{
+    String sql = "SELECT COUNT(*) from livro";
+    stmt= con.prepareStatement(sql);
+    rs = stmt.executeQuery();
+    while(rs.next()){
+        ID = rs.getInt("COUNT(*)");
+        ID++;
     }
+    jTextFieldBookID.setText(Integer.toString(ID));
+}catch (Exception ex){
+}
+return ID;
+
+}
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -184,7 +214,10 @@ public class NewBook extends javax.swing.JFrame {
         ob.setVisible(true);
 
     }//GEN-LAST:event_jButtonBackActionPerformed
-
+/**
+ * Cadastro de Novo Livro no Banco de Dados
+ * @param evt 
+ */
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
 
         String sql = "INSERT INTO livro(Book_ID, Name, Edition, Publisher, Price, Pages) VALUES (?,?,?,?,?,?)";

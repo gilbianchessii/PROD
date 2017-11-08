@@ -24,7 +24,7 @@ public class Return extends javax.swing.JFrame {
      * Creates new form Return
      */
     public Return() {
-        super("Return Book");
+        super("Devolução");
         initComponents();
         con = JavaConnect.ConnectDb();
     }
@@ -69,7 +69,7 @@ public class Return extends javax.swing.JFrame {
             stmt.setString(14, jTextFieldDE.getText());
             stmt.setString(15, ((JTextField) jDateChooser1.getDateEditor().getUiComponent()).getText());
             stmt.execute();
-            JOptionPane.showMessageDialog(null, "Book Returned");
+            JOptionPane.showMessageDialog(null, "Livro Devolvido");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e + " RUpd");
         }
@@ -400,7 +400,7 @@ public class Return extends javax.swing.JFrame {
                 rs.close();
                 stmt.close();
             } else {
-                JOptionPane.showMessageDialog(null, "Book is not Issued with this Student ID");
+                JOptionPane.showMessageDialog(null, "Livro não encontrado neste ID de Estudante");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

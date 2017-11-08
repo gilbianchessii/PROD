@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Nov-2017 às 13:18
+-- Generation Time: 08-Nov-2017 às 12:19
 -- Versão do servidor: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -31,22 +31,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `conta` (
   `Username` varchar(80) NOT NULL,
   `Name` varchar(80) NOT NULL,
-  `Password` int(11) NOT NULL,
+  `Password` varchar(15) NOT NULL,
   `Sec_Q` varchar(80) NOT NULL,
   `Answer` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `conta`
---
-
-INSERT INTO `conta` (`Username`, `Name`, `Password`, `Sec_Q`, `Answer`) VALUES
-('Rodrigo', 'Rodrigo', 123, 'qual nome da sua mae?', '123'),
-('RB22', 'Rodrigo', 1, 'qual nome da sua mae?', '1'),
-('1', '1', 1, 'qual nome da sua mae?', '1'),
-('1', '1', 1, 'qual nome da sua mae?', '1'),
-('123', '123', 123, 'qual nome da sua mae?', '123'),
-('R', 'Rodrigo', 1, 'qual nome da sua mae?', 'R');
 
 -- --------------------------------------------------------
 
@@ -64,15 +52,6 @@ CREATE TABLE `estudante` (
   `Semester` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `estudante`
---
-
-INSERT INTO `estudante` (`Student_ID`, `Name`, `Father`, `Course`, `Branch`, `Year`, `Semester`) VALUES
-(493, '123', '123', 'Item 1', '123', 1, 1),
-(562, 'R', 'R', 'Item 1', '1', 1, 1),
-(601, '11', '1', 'Item 1', '1', 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -84,18 +63,9 @@ CREATE TABLE `livro` (
   `Name` varchar(80) NOT NULL,
   `Edition` int(11) NOT NULL,
   `Publisher` varchar(100) NOT NULL,
-  `Price` int(11) NOT NULL,
+  `Price` double NOT NULL,
   `Pages` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `livro`
---
-
-INSERT INTO `livro` (`Book_ID`, `Name`, `Edition`, `Publisher`, `Price`, `Pages`) VALUES
-(845, 'HP', 2, '123', 123, 123),
-(898, 'R', 1, 'R', 1, 1),
-(7111, '1', 1, '1', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -108,7 +78,7 @@ CREATE TABLE `problema` (
   `Name` varchar(80) NOT NULL,
   `Edition` int(11) NOT NULL,
   `Publisher` varchar(80) NOT NULL,
-  `Price` int(11) NOT NULL,
+  `Price` double NOT NULL,
   `Pages` int(11) NOT NULL,
   `Student_ID` int(11) NOT NULL,
   `SName` varchar(80) NOT NULL,
@@ -117,7 +87,7 @@ CREATE TABLE `problema` (
   `Branch` varchar(80) NOT NULL,
   `Year` int(11) NOT NULL,
   `Semester` int(11) NOT NULL,
-  `DateOfIssue` int(11) NOT NULL
+  `DateOfIssue` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -138,10 +108,10 @@ CREATE TABLE `retorno` (
   `BName` varchar(80) NOT NULL,
   `Edition` int(11) NOT NULL,
   `Publisher` varchar(80) NOT NULL,
-  `Price` int(11) NOT NULL,
+  `Price` double NOT NULL,
   `Pages` int(11) NOT NULL,
-  `DOI` int(11) NOT NULL,
-  `DOR` int(11) NOT NULL
+  `DOI` varchar(80) NOT NULL,
+  `DOR` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -181,13 +151,13 @@ ALTER TABLE `retorno`
 -- AUTO_INCREMENT for table `estudante`
 --
 ALTER TABLE `estudante`
-  MODIFY `Student_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=602;
+  MODIFY `Student_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=596;
 
 --
 -- AUTO_INCREMENT for table `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `Book_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7112;
+  MODIFY `Book_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=285;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

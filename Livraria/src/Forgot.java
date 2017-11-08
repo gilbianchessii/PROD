@@ -25,7 +25,7 @@ public class Forgot extends javax.swing.JFrame {
     PreparedStatement stmt;
 
     public Forgot() {
-        super("Forgot Password");
+        super("Esqueceu a Senha");
         initComponents();
         con = JavaConnect.ConnectDb();
     }

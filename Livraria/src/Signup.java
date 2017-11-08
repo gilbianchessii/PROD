@@ -14,7 +14,7 @@ public class Signup extends javax.swing.JFrame {
     PreparedStatement stmt;
 
     public Signup() {
-        super("Signup");
+        super("Registrar");
         initComponents();
         con = JavaConnect.ConnectDb();
     }
@@ -44,7 +44,7 @@ public class Signup extends javax.swing.JFrame {
 
         jLabel5.setText("Resposta");
 
-        jComboBoxPSegurança.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qual o nome da sua mãe?", "Qual o nome da sua primeira professora?", "Para qual time seu pai torce?", "Qual nome do seu avô paterno?" }));
+        jComboBoxPSegurança.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome da sua primeira escola?", "Qual o nome da sua mãe?", "Qual nome do seu avô paterno?", "Para qual time seu pai torce?" }));
 
         jLabel1.setText("Nome");
 
@@ -93,9 +93,11 @@ public class Signup extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldNome)
                             .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBoxPSegurança, 0, 166, Short.MAX_VALUE)
                             .addComponent(jTextFieldResposta, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldSenha))
+                            .addComponent(jTextFieldSenha)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jComboBoxPSegurança, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -145,7 +147,7 @@ public class Signup extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(407, 349));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

@@ -24,7 +24,7 @@ public class Loading extends javax.swing.JFrame implements Runnable {
      *
      */
     public Loading() {
-        super("Loading");
+        super("Carregando");
         initComponents();
         th = new Thread((Runnable) this);
 
@@ -63,7 +63,7 @@ public class Loading extends javax.swing.JFrame implements Runnable {
                         ob.setVisible(true);
 
                     }
-                    Thread.sleep(50);
+                    Thread.sleep(25);
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);

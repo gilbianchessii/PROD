@@ -5,8 +5,9 @@
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
+    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,93,0,0,1,-105"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="0"/>
-    <SyntheticProperty name="generateSize" type="boolean" value="false"/>
+    <SyntheticProperty name="generateSize" type="boolean" value="true"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
@@ -84,9 +85,12 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jTextFieldNome" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldUsuario" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jComboBoxPSegurança" alignment="0" pref="166" max="32767" attributes="0"/>
                               <Component id="jTextFieldResposta" alignment="1" max="32767" attributes="0"/>
                               <Component id="jTextFieldSenha" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jComboBoxPSegurança" min="-2" pref="199" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -142,10 +146,10 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
-                <StringItem index="0" value="Qual o nome da sua m&#xe3;e?"/>
-                <StringItem index="1" value="Qual o nome da sua primeira professora?"/>
-                <StringItem index="2" value="Para qual time seu pai torce?"/>
-                <StringItem index="3" value="Qual nome do seu av&#xf4; paterno?"/>
+                <StringItem index="0" value="Nome da sua primeira escola?"/>
+                <StringItem index="1" value="Qual o nome da sua m&#xe3;e?"/>
+                <StringItem index="2" value="Qual nome do seu av&#xf4; paterno?"/>
+                <StringItem index="3" value="Para qual time seu pai torce?"/>
               </StringArray>
             </Property>
           </Properties>

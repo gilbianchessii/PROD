@@ -311,7 +311,7 @@ return ID;
        jTextFieldBranch.setText(null);
        jTextFieldFather.setText(null);
        jTextFieldName.setText(null);
-       jTextFieldStudent_ID.setText(null);
+       //jTextFieldStudent_ID.setText(null);
        jComboBoxCourse.setSelectedIndex(0);
        jComboBoxSemester.setSelectedIndex(0);
        jComboBoxYear.setSelectedIndex(0);

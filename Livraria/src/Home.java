@@ -57,7 +57,7 @@ public class Home extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 0, 51));
         jLabel4.setText("ao");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)), "Operação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 20), new java.awt.Color(0, 153, 153))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)), "Operação", 0, 0, new java.awt.Font("Tahoma", 0, 20), new java.awt.Color(0, 153, 153))); // NOI18N
 
         jButtonNewAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/addusericon_3.png"))); // NOI18N
         jButtonNewAccount.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +80,7 @@ public class Home extends javax.swing.JFrame {
         jLabel6.setText("Estatísticas");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Novo Aluno");
+        jLabel7.setText("Gerenciar Alunos");
 
         jButtonStats.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconeS/statistics-icon.png"))); // NOI18N
         jButtonStats.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +134,7 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)), "Ações", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 102, 0))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)), "Ações", 0, 0, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 102, 0))); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Empréstimo de Livros");
